@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class b {
+
+    public static int secondLargest(int arr[]){
+        int first=Integer.MIN_VALUE;
+        int second=Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]>first){
+                second=first;
+                first=arr[i];
+            } else if(arr[i]>second && arr[i]!=first){
+                second=arr[i];
+            }
+        }
+        return second;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the size of array ");
+        int size=sc.nextInt();
+        while(size<2){
+            System.out.print("Array size should be minimum 2 ");
+            size=sc.nextInt();
+        }
+
+        System.out.print("Enter the elements ");
+        int nums[] = new int[size];
+        for(int i=0;i<size;i++){
+            nums[i]=sc.nextInt();
+        }
+
+        sc.close();
+
+        int second=secondLargest(nums);
+        if(second==Integer.MIN_VALUE){
+            System.out.println("There are no second largest element.");
+        } else{
+            System.out.println("The second largest element is "+second);
+        }
+    }
+}
