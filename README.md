@@ -1,2 +1,2 @@
 # DSA-Practice-Code
-Here, I just store the basic to advance program based on DSA problems.
+Here, I just store the basic to advance programs of DSA problems.
