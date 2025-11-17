@@ -1,0 +1,67 @@
+import java.util.*;
+
+public class bitmanipulation{
+    public static int getbit(int n, int i){
+        int bitmask=1<<i;
+        if((n&bitmask)==0){
+            return 0;
+        } else{
+            return 1;
+        }
+    }
+
+    public static int setbit(int n, int i){
+        int bitmask=1<<i;
+        return n|bitmask;
+    }
+
+    public static int clearbit(int n, int i){
+        int bitmask=~(1<<i);
+        return n&bitmask;
+    }
+
+    public static int updateithbit(int n, int i, int newbit){
+      clearbit(n, i);
+      int bitmask=newbit<<i;
+      return n|bitmask;
+    }
+
+    public static boolean is_negetive(int n){
+        if(n<0){
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter the number - ");
+        int num=sc.nextInt();
+        if(is_negetive(num)){
+            System.out.print("Please enter a positive number - ");
+            num=sc.nextInt();
+        }
+        System.out.print("Enter the bit position you want to change - ");
+        int position=sc.nextInt();
+        if(is_negetive(position)){
+            System.out.print("The position index should be positive - ");
+            position=sc.nextInt();
+        }
+        System.out.print("Enter the newbit - ");
+        int newbit=sc.nextInt();
+        while(newbit!=1 && newbit!=0){
+            System.out.print("The bit should be 0 or 1 : ");
+            newbit=sc.nextInt();
+        }
+        sc.close();
+        
+        if(getbit(num, position)==newbit){
+            System.out.println("The bit at "+position+" is already "+newbit);
+        } else{
+            System.out.println("The Actual number - "+num);
+            System.out.println("The actual bit at "+position+" is "+getbit(num, position));
+            System.out.println("After updation the number is "+updateithbit(num, position, newbit));
+        }
+    }
+}
