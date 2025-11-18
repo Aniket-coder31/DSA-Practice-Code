@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class bitmanipulation{
+    public static int clearlastihbit(int n, int i){
+        int bitmask= ((~0)<<i);
+        return n&bitmask;
+    }
+
+    public static boolean is_negetive(int n){
+        if(n<0){
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the number - ");
+        int num=sc.nextInt();
+        while(is_negetive(num)){
+            System.out.print("the number should be positive - ");
+            num=sc.nextInt();
+        }
+
+        System.out.print("How many bits you want to clear from last - ");
+        int position=sc.nextInt();
+        while(is_negetive(position)){
+            System.out.print("This input should be positive - ");
+            position=sc.nextInt();
+        }
+
+        sc.close();
+        System.out.println("After clearing last "+position+" bits the number has become "+clearlastihbit(num, position));
+        
+    }
+}
