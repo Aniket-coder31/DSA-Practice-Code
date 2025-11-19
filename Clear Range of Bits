@@ -1,0 +1,39 @@
+import java.util.*;
+public class bitmanipulation{
+    public static int clearrangeofbits(int n,int j,int i){ //j = left range, i = right range
+        int bitmask=-1<<j+1|(1<<i)-1;
+        return n&bitmask;
+    }
+
+    public static boolean is_negetive(int n){
+        if(n<0){
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the number - ");
+        int num=sc.nextInt();
+        while(is_negetive(num)){
+            System.out.print("We expect a positive number - ");
+            num=sc.nextInt();
+        }
+        System.out.print("Enter the left range - ");
+        int leftrange=sc.nextInt();
+        while(is_negetive(leftrange)){
+            System.out.print("We expect a positive range value - ");
+            leftrange=sc.nextInt();
+        }
+        System.out.print("Enter the right range - ");
+        int rightrange=sc.nextInt();
+        while(is_negetive(rightrange)){
+            System.out.print("We expect a positive range value - ");
+            rightrange=sc.nextInt();
+        }
+        sc.close();
+        System.out.println("Result - "+clearrangeofbits(num, leftrange, rightrange));
+    }
+}
