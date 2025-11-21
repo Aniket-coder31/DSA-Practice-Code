@@ -1,0 +1,20 @@
+import java.util.*;
+public class bitmanipulation{
+    public static int countsetbits(int n){
+        int count=0;
+        while(n!=0){
+           n&=n-1;  //Brian Kernighan's algorithm
+           count++;
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter a number - ");
+        int num=sc.nextInt();
+        sc.close();
+        System.out.println("Total set bits in "+num+" - "+countsetbits(num));
+    }
+}
